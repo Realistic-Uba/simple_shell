@@ -30,11 +30,11 @@ int _erratoi(char *s)
 }
 
 /**
- * print_error - prints an error message
- * @info: the parameter & return info struct
- * @estr: string containing specified error type
- * Return: 0 if no numbers in string, converted number otherwise
- *        -1 on error
+ * print_error - prints a message in error
+ * @info: information struct for parameters and returns
+ * @estr: string with the indicated error type
+ * Return: 0 if the string contains no numbers; else, a converted number
+ *        on error -1
  */
 void print_error(info_t *info, char *estr)
 {
@@ -48,16 +48,15 @@ void print_error(info_t *info, char *estr)
 }
 
 /**
- * print_d - function prints a decimal (integer) number (base 10)
- * @input: the input
- * @fd: the filedescriptor to write to
- *
- * Return: number of characters printed
+ * print_d - function outputs an integer decimal (base 10) number.
+ * @input: this is the input
+ * @fd: writing to the filedescriptor
+ * Return: the number of characters that are printed
  */
 int print_d(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
-	int i, count = 0;
+	int p, countN = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
@@ -66,33 +65,32 @@ int print_d(int input, int fd)
 	{
 		_abs_ = -input;
 		__putchar('-');
-		count++;
+		countN++;
 	}
 	else
 		_abs_ = input;
 	current = _abs_;
-	for (i = 1000000000; i > 1; i /= 10)
+	for (p = 1000000000; p > 1; p /= 10)
 	{
-		if (_abs_ / i)
+		if (_abs_ / p)
 		{
-			__putchar('0' + current / i);
-			count++;
+			__putchar('0' + current / p);
+			countN++;
 		}
-		current %= i;
+		current %= p;
 	}
 	__putchar('0' + current);
-	count++;
+	countN++;
 
-	return (count);
+	return (countN);
 }
 
 /**
- * convert_number - converter function, a clone of itoa
- * @num: number
- * @base: base
- * @flags: argument flags
- *
- * Return: string
+ * convert_number - a converter function that clones itoa
+ * @num: the number
+ * @base: the base
+ * @flags:the argument flags
+ * Return: the string
  */
 char *convert_number(long int num, int base, int flags)
 {
@@ -100,11 +98,11 @@ char *convert_number(long int num, int base, int flags)
 	static char buffer[50];
 	char sign = 0;
 	char *ptr;
-	unsigned long n = num;
+	unsigned long p = num;
 
 	if (!(flags & CONVERT_UNSIGNED) && num < 0)
 	{
-		n = -num;
+		p = -num;
 		sign = '-';
 
 	}
@@ -114,8 +112,8 @@ char *convert_number(long int num, int base, int flags)
 
 	do	{
 		*--ptr = array[n % base];
-		n /= base;
-	} while (n != 0);
+		p /= base;
+	} while (p != 0);
 
 	if (sign)
 		*--ptr = sign;
@@ -123,19 +121,18 @@ char *convert_number(long int num, int base, int flags)
 }
 
 /**
- * remove_comments - function replaces first instance of '#' with '\0'
- * @buf: address of the string to modify
- *
+ * remove_comments - function substitutes "0" for the first occurence of "#"
+ * @buf: address of the modified string
  * Return: Always 0;
  */
 void remove_comments(char *buf)
 {
-	int i;
+	int r;
 
-	for (i = 0; buf[i] != '\0'; i++)
-		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
+	for (r = 0; buf[r] != '\0'; r++)
+		if (buf[r] == '#' && (!r || buf[r - 1] == ' '))
 		{
-			buf[i] = '\0';
+			buf[r] = '\0';
 			break;
 		}
 }
