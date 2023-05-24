@@ -50,6 +50,29 @@ typedef struct liststr
 	struct liststr *next;
 } list_t;
 
+/**
+ *struct passinfo - this contains pseudo-arguements to pass into a function,
+ *		allowing uniform prototype for function pointer struct
+ *@arg: this is a string generated from getline containing arguements
+ *@argv: This is an array of strings generated from argy
+ *@path: a string path for the current command
+ *@argc: the argument count
+ *@line_count: the error count
+ *@err_num: the error code for exit()s
+ *@linecount_flag: use this if on count this line of input
+ *@fname: this is the program filename
+ *@env: holds the linked list local copy of environ
+ *@environ: this is the custom modified copy of environ from LL env
+ *@history: this is the history node
+ *@alias: the alias node
+ *@env_changed: on if environ was changed
+ *@status: the return status of the last exec'd command
+ *@cmd_buf: address of pointer to cmd_buf, on if chaining
+ *@cmd_buf_type: CMD_type ||, &&, ;
+ *@readfd: represent fd from which to read line input
+ *@histcount: this is the history line number count
+ */
+
 typedef struct passinfo
 {
 	char *arg;
@@ -205,31 +228,9 @@ ssize_t get_node_index(list_t *, list_t *);
 /* prototype hsh_vars.c */
 int is_chain(info_t *, char *, size_t *);
 void check_chain(info_t *, char *, size_t *, size_t, size_t);
-int replace_alias(info_t *);
+int5 replace_alias(info_t *);
 int replace_vars(info_t *);
 int replace_string(char **, char *);
 
-/* variable.c */
-int liberated(void **locate)
-
-/* file_as_input.c */
-char *value1(char *a, char b, unsigned int c)
-void loose(char **untie)
-void *alloc(void *pal, unsigned int past_size, unsigned int fresh_size)
-
-/* alias.c */
-int main(int instru1, char **instru2)
-
-/* comment.c */
-int command_file(value1 *bulletin, char *track)
-char *twofold_chars(char *trackstring, int commence, int halt)
-char *detect_dir(bull_a *bull, char *string_dir, char *cmmd)
-
-/* AND_OR.c */
-size_num tally_range(const list_num *hash)
-char **roll_str(list_num *top)
-size_num pull_tally(const list_num *hash)
-list_num *apex_begins(list_num *apex, char *_syn, char sim)
-size_numb obtain_apex_lead(list_num *top, list_num *apex)
 
 #endif
