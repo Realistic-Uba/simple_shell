@@ -43,7 +43,7 @@ char *_strncat(char *dest, char *src, int n)
 	char *ptr = dest;
 
 	r = 0;
-	j = 0;
+	p = 0;
 	while (dest[r] != '\0')
 		r++;
 	while (src[p] != '\0' && p < n)

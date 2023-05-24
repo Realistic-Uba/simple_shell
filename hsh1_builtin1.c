@@ -26,10 +26,10 @@ int unset_alias(info_t *info, char *str)
 	int let;
 
 	ptr = _strchr(str, '=');
-	if (!p)
+	if (!ptr)
 		return (1);
 	a = *ptr;
-	*p = 0;
+	*ptr = 0;
 	let = delete_node_at_index(&(info->alias),
 		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
 	*ptr = a;
