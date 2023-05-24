@@ -1,58 +1,33 @@
-**0. Betty would be proud**
+0. Betty would be proud 
 
-Write a beautiful code that passes the Betty checks
+1. Simple shell 0.1 
 
-**1. Simple shell 0.1**
+2. Simple shell 0.2
 
-Write a UNIX command line interpreter.
+3. Simple shell 0.3 
 
-    - Usage: `simple_shell`
+4. Simple shell 0.4 
 
-Your Shell should:
+5. Simple shell 1.0 
 
-    - Display a prompt and wait for the user to type a command. A command line always ends with a new line.
-    - The prompt is displayed again each time a command has been executed.
-    - The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.
-    - The command lines are made only of one word. No arguments will be passed to programs.
-    - If an executable cannot be found, print an error message and display the prompt again.
-    - Handle errors.
-    - You have to handle the “end of file” condition (`Ctrl+D`)
+6. Simple shell 0.1.1 
 
-You don’t have to:
+7. Simple shell 0.2.1 
 
-    - use the PATH
-    - implement built-ins
-    - handle special characters :`"`, `'`, `, `\`, `*/`, `&`, `#`
-    - be able to move the cursor
-    - handle commands with arguments
+8. Simple shell 0.4.1 
 
-`execve` will be the core part of your Shell, don’t forget to pass the environ to it… 
+9. setenv, unsetenv 
 
-**2. Simple shell 0.2**
+10. cd 
 
-Simple shell 0.1 +
+11. ; 
 
-    - Handle command lines with arguments
+12. && and || 
 
-**3. Simple shell 0.3**
+13. alias 
 
-Simple shell 0.2 +
+14. Variables 
 
-    - Handle the `PATH`
-    - `fork` must not be called if the command doesn’t exist
+15. Comments 
 
-**4. Simple shell 0.4**
-
-Simple shell 0.3 +
-
-    - Implement the `exit` built-in, that exits the shell
-    - Usage: `exit`
-    - You don’t have to handle any argument to the built-in `exit`
-
-**5. Simple shell 1.0**
-
-Simple shell 0.4 +
-
-    - Implement the `env` **built-in**, that prints the current environment
-
-
+16. File as input 
