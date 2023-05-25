@@ -1,47 +1,46 @@
 #include "shell.h"
 
 /**
- **_memset - fills memory with a constant byte
- *@s: the pointer to the memory area
- *@b: the byte to fill *s with
- *@n: the amount of bytes to be filled
- *Return: (s) a pointer to the memory area s
+ * _memset - This function fills a block of memory with a constant byte.
+ * @s: Pointer to the memory area.
+ * @b: Byte to fill the memory with.
+ * @n: Number of bytes to be filled.
+ * Return: Pointer to the memory area 's'.
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int i;
+	unsigned int f;
 
-	for (i = 0; i < n; i++)
-		s[i] = b;
+	for (f = 0; f < n; f++)
+		s[f] = b;
 	return (s);
 }
 
 /**
- * ffree - frees a string of strings
- * @pp: string of strings
+ * ffree - This function frees up memory allocated for a string of strings.
+ * @pp: The string of strings.
  */
 void ffree(char **pp)
 {
-	char **a = pp;
+	char **q = pp;
 
 	if (!pp)
 		return;
 	while (*pp)
 		free(*pp++);
-	free(a);
+	free(q);
 }
 
 /**
- * _realloc - reallocates a block of memory
- * @ptr: pointer to previous malloc'ated block
- * @old_size: byte size of previous block
- * @new_size: byte size of new block
- *
- * Return: pointer to da ol'block nameen.
+ * _realloc - This function reallocates a block of memory.
+ * @ptr: Pointer to the previously allocated block.
+ * @old_size: Byte size of the previous block.
+ * @new_size: Byte size of the new block.
+ * Return: Pointer to the reallocated memory block.
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *p;
+	char *l;
 
 	if (!ptr)
 		return (malloc(new_size));
@@ -50,13 +49,13 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (new_size == old_size)
 		return (ptr);
 
-	p = malloc(new_size);
-	if (!p)
+	l = malloc(new_size);
+	if (!l)
 		return (NULL);
 
 	old_size = old_size < new_size ? old_size : new_size;
 	while (old_size--)
-		p[old_size] = ((char *)ptr)[old_size];
+		l[old_size] = ((char *)ptr)[old_size];
 	free(ptr);
-	return (p);
+	return (l);
 }

@@ -134,7 +134,7 @@ int _putsfd(char *str, int fd);
 /* prototype hsh_string.c */
 int _strlen(char *);
 int _strcmp(char *, char *);
-char *starts_with(const char *, const char *);
+char *begins_with(const char *, const char *);
 char *_strcat(char *, char *);
 
 /* prototype hsh_string1.c */
@@ -158,7 +158,7 @@ void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
 /* prototype hsh_memory.c */
-int bfree(void **);
+int buffer_free(void **);
 
 /* hsh_atoi.c */
 int interactive(info_t *);
@@ -192,7 +192,7 @@ void clear_info(info_t *);
 void set_info(info_t *, char **);
 void free_info(info_t *, int);
 
-/* hsh_environ.c */
+/* env.c */
 char *_getenv(info_t *, const char *);
 int _myenv(info_t *);
 int _mysetenv(info_t *);
@@ -226,8 +226,8 @@ list_t *node_starts_with(list_t *, char *, char);
 ssize_t get_node_index(list_t *, list_t *);
 
 /* prototype hsh_vars.c */
-int is_chain(info_t *, char *, size_t *);
-void check_chain(info_t *, char *, size_t *, size_t, size_t);
+int it_is_chain(info_t *, char *, size_t *);
+void chain_check(info_t *, char *, size_t *, size_t, size_t);
 int replace_alias(info_t *);
 int replace_vars(info_t *);
 int replace_string(char **, char *);
